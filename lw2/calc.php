@@ -9,6 +9,7 @@
 
     $queryString = explode('&', $_SERVER['QUERY_STRING']);
     $paramsNumber = sizeof($queryString);
+
     if ($paramsNumber < $PARAMS_NUMBER) {
         echo "Вы ввели недостаточное количество аргументов! Нужно 3: arg1, arg2, operation";
         return;
