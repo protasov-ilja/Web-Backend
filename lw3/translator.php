@@ -9,7 +9,8 @@
     $paramsNumber = sizeof($queryString);
 
     if ((!isset($_GET['word'])) && ($paramsNumber != 1)) {
-        return 400;
+        header('HTTP/1.1 400 Bad Request');
+        return;
     }
 
     $keyWord = $_GET['word'];
@@ -20,6 +21,7 @@
         if ($translateWord != false) {
             echo $translateWord;
         } else {
-            return 404;
+            header('HTTP/1.1 404 Not Found');
+            return;
         }
     }
