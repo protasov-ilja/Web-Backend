@@ -39,8 +39,7 @@
     }
 
     if (strlen($_GET['identifier']) != 0){
-        echo (CheckIdentifier($_GET['identifier']));
+        echo (checkIdentifier($_GET['identifier']));
     } else {
-        echo "no Передан пустой параметр \<identifier\>";
-        header('HTTP/1.1 404 Not Found');
+        echo "no: identifier is empty";
     }
