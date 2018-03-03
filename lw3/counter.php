@@ -2,29 +2,28 @@
     $queryString = explode('&', $_SERVER['QUERY_STRING']);
     $paramsNumber = sizeof($queryString);
 
-    if ((!isset($_GET['string'])) && ($paramsNumber != 1)) {
+    if ((!isset($_GET['string'])) || ($paramsNumber != 1)) {
         header('HTTP/1.1 400 Bad Request');
         return;
     }
 
-    $inputString = mb_convert_case($_GET['string'], MB_CASE_LOWER, "UTF-8");
-    $inputString = explode('', $inputString);
-    $stringLength = sizeof($reverseArray);
-    $checkArr = [];
+    $inputString = str_split(strtolower($_GET['string']));
+    $stringLength = sizeof($inputString);
+    $checkArr = array();
     for ($i = 0; $i < $stringLength; ++$i) {
         $counter = 0;
         if (!in_array($inputString[$i], $checkArr)) {
             for ($j = 0; $j < $stringLength; ++$j) {
-                if ($inputString[$i] = $inputString[$j]) {
+                if ($inputString[$i] == $inputString[$j]) {
                     $counter++;
                 }
             }
 
             array_push($checkArr, $inputString[$i]);
             if ($inputString[$i] == ' ') {
-                echo "\'$inputString[$i]\'(пробел) - $counter\n";
+                echo nl2br("'". $inputString[$i]. "'(пробел) - ". $counter. PHP_EOL);
             } else {
-                echo "$inputString[$i] - $counter\n";
+                echo nl2br($inputString[$i]. " - ". $counter. PHP_EOL);
             }
         }
     }

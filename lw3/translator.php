@@ -8,7 +8,7 @@
     $queryString = explode('&', $_SERVER['QUERY_STRING']);
     $paramsNumber = sizeof($queryString);
 
-    if ((!isset($_GET['word'])) && ($paramsNumber != 1)) {
+    if ((!isset($_GET['word'])) || ($paramsNumber != 1)) {
         header('HTTP/1.1 400 Bad Request');
         return;
     }

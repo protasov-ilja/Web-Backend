@@ -10,7 +10,7 @@
     }
 
     function revers($str) {
-        $reverseArray = explode(',', $str);
+        $reverseArray = str_split($str);
         $stringLength = sizeof($reverseArray);
         for ($i = 0; $i < $stringLength / 2; ++$i) {
             $tempVariable = $reverseArray[$i];
@@ -20,5 +20,3 @@
 
         return (implode('', $reverseArray));
     }
-
-
