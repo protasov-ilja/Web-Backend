@@ -1,53 +1,33 @@
 <?php
-    $ADDITION = "add";
-    $SUBTRACTION = "sub";
-    $MULTIPLICATION = "mul";
-    $DIVISION = "div";
-    $PARAMS_NUMBER = 3;
+header('Content-type: text/plain; charset=utf-8');
 
-    header("Content-Type: text/plain");
+require_once 'include/common.inc.php';
 
-    $queryString = explode('&', $_SERVER['QUERY_STRING']);
-    $paramsNumber = sizeof($queryString);
+const PARAMS_NUMBER = 3;
 
-    if ($paramsNumber < $PARAMS_NUMBER) {
-        echo "Вы ввели недостаточное количество аргументов! Нужно 3: arg1, arg2, operation";
-        return;
-    } else if ($paramsNumber > $PARAMS_NUMBER) {
-        echo "Вы ввели количество параметров больше допустимого! Нужно 3: arg1, arg2, operation";
-        return;
+function checkParamsForCorrect($paramsNumber)
+{
+    if ($paramsNumber < PARAMS_NUMBER) {
+        throw new Exception("Вы ввели недостаточное количество аргументов! Нужно 3: arg1, arg2, operation");//header 400 bad request
+    } else if ($paramsNumber > PARAMS_NUMBER) {
+        throw new Exception("Вы ввели количество параметров больше допустимого! Нужно 3: arg1, arg2, operation");
     }
 
-    if (!isset($_GET['arg1']) && !isset($_GET['arg2']) && !isset($_GET['arg1'])) {
-        echo "Неправильные имена параметров! Нужно: arg1, arg2, operation ";
-        return;
+    if (!isset($_GET['arg1']) && !isset($_GET['arg2']) && !isset($_GET['operation'])) {
+        throw new Exception("Неправильные имена параметров! Нужно: arg1, arg2, operation");
     }
 
-    if (is_numeric($_GET['arg1']) && is_numeric($_GET['arg2'])) {
-        $firstNum = $_GET['arg1'];
-        $secondNum = $_GET['arg2'];
-        $operation = $_GET['operation'];
-
-        switch ($operation) {
-            case $ADDITION:
-                echo $firstNum + $secondNum;
-                break;
-            case $SUBTRACTION:
-                echo $firstNum - $secondNum;
-                break;
-            case $MULTIPLICATION:
-                echo $firstNum * $secondNum;
-                break;
-            case $DIVISION:
-                if ($secondNum != 0) {
-                    echo $firstNum / $secondNum;
-                } else {
-                    echo "На 0 делить нельзя!";
-                }
-                break;
-            default:
-                echo "Неверно введен оператор!";
-        }
-    } else {
-        echo "Один из аргументов arg1, arg2 не число!";
+    if (is_numeric($_GET['arg1']) && is_numeric($_GET['arg2']))
+    {
+        throw new Exception("Один из аргументов arg1, arg2 не число!");
     }
+}
+
+try {
+    checkParamsForCorrect(Count($_GET));
+    $result = calculator($_GET['arg1'], $_GET['arg2'], $_GET['operation']);
+    echo $result;
+} catch(Exception $ex) {
+    header('HTTP/1.1 400 Bad Request');
+    echo $ex->getMessage();
+}

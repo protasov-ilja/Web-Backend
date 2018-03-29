@@ -1,2 +1,2 @@
 <?php
-    echo "World";
+echo "World";
