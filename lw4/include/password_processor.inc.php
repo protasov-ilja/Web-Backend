@@ -39,9 +39,9 @@ function checkPasswordStrength($password)
     }
 
     return (checkReliabilityOfNumbers($arrayLength, $numberCounter, $isOnlyNumbers) +
-        checkReliabilityByCaseOfSymbols($arrayLength, $upperSymbolCounter, $lowerSymbolCounter) +
-        checkReliabilityOfSymbols($arrayLength, $symbolCounter, $isOnlySymbols) -
-        checkReliabilityByRepetitions($repeatCounter, sizeof($repetitionArray)));
+            checkReliabilityByCaseOfSymbols($arrayLength, $upperSymbolCounter, $lowerSymbolCounter) +
+            checkReliabilityOfSymbols($arrayLength, $symbolCounter, $isOnlySymbols) -
+            checkReliabilityByRepetitions($repeatCounter, sizeof($repetitionArray)));
 }
 
 function checkReliabilityByRepetitions($repeatCounter, $repeatSymbolsCounter)
@@ -70,7 +70,6 @@ function checkReliabilityByCaseOfSymbols($lineLength, $upperSymbolCounter, $lowe
     }
 
     return $result;
-
 }
 
 function checkReliabilityOfNumbers($lineLength, $numberCounter, $isOnlyNumbers)

@@ -1,10 +1,9 @@
 <?php
 // password_strength.php
-
+header("Content-Type: text/plain; charset=UTF-8");
 require_once 'include/common.inc.php';
 
-$paramsNumber = Count($_GET);
-if ((!isset($_GET['password'])) || ($paramsNumber != 1)) {
+if ((!isset($_GET['password'])) || (Count($_GET) != 1)) {
     header('HTTP/1.1 400 Bad Request');
     return;
 }

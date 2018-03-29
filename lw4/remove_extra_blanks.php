@@ -1,28 +1,9 @@
 <?php
 // remove_extra_blanks.php
+header("Content-Type: text/plain; charset=UTF-8");
+require_once 'include/common.inc.php';
 
-function removeExtraBlanks($str)
-{
-    $verifiableArray = str_split($str);
-    $arrayLength = sizeof($verifiableArray);
-    $i = 0;
-    while ($verifiableArray[$i] == ' ') {
-        ++$i;
-    }
-
-    $outputString = "";
-    for ($j = $i; $j < $arrayLength; ++$j) {
-        if (($verifiableArray[$j] != ' ') || (($j + 1 < $arrayLength) && ($verifiableArray[$j] == ' ') && ($verifiableArray[$j + 1] != ' '))) {
-            $outputString = $outputString . $verifiableArray[$j];
-        }
-    }
-
-    return $outputString;
-}
-
-
-$paramsNumber = Count($_GET);
-if ((!isset($_GET['text'])) || ($paramsNumber != 1)) {
+if ((!isset($_GET['text'])) || (Count($_GET) != 1)) {
     header('HTTP/1.1 400 Bad Request');
     return;
 }
