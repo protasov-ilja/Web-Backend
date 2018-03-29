@@ -1,7 +1,6 @@
 <?php
 
 $paramsNumber = Count($_GET);
-
 if ((!isset($_GET['string'])) || ($paramsNumber != 1)) {
     header('HTTP/1.1 400 Bad Request');
     return;

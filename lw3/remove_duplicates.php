@@ -1,10 +1,26 @@
 <?php
+header('Content-type: text/html; charset=utf-8');
+
 if ($argc != 2) {
     echo "Incorrect number of arguments!\n Usage php remove_duplicates.php <\input string>";
     return;
 }
 
-$charArray = str_split($argv[1]); // str_split_unicode
+function str_split_unicode($str, $l = 0) {
+    if ($l > 0) {
+        $ret = array();
+        $len = mb_strlen($str, "UTF-8");
+        for ($i = 0; $i < $len; $i += $l) {
+            $ret[] = mb_substr($str, $i, $l, "UTF-8");
+        }
+
+        return $ret;
+    }
+
+    return preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY);
+}
+
+$charArray = str_split_unicode($argv[1]);
 $arrayLength = sizeof($charArray);
 $outputArray = [];
 for ($i = 0; $i < $arrayLength; ++$i) {
