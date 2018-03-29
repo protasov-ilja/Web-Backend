@@ -1,6 +1,6 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
-
+//TODO разбить на функции и поделить на файлы
 if ($argc != 2) {
     echo "Incorrect number of arguments!\n Usage php remove_duplicates.php <\input string>";
     return;

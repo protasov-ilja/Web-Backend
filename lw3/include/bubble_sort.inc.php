@@ -1,14 +1,18 @@
 <?php
-    function bubbleSort($numbersArray, $arrayLength) {
-        for($i = 1; $i < $arrayLength; ++$i) {
-            for($j=$arrayLength - 1; $j >= $i; --$j) {
-                if($numbersArray[$j - 1] > $numbersArray[$j]) {
-                    $bufferVariable = $numbersArray[$j - 1]; //вынести в функцию swap
-                    $numbersArray[$j - 1] = $numbersArray[$j];
-                    $numbersArray[$j] = $bufferVariable;
-                }
+function sortArray($numbersArray, $arrayLength) {
+    for($i = 1; $i < $arrayLength; ++$i) {
+        for($j=$arrayLength - 1; $j >= $i; --$j) {
+            if($numbersArray[$j - 1] > $numbersArray[$j]) {
+                swap($numbersArray[$j - 1], $numbersArray[$j]);
             }
         }
-
-        return implode(',', $numbersArray);//implode делать снаружи чтобы не делать 2 действия
     }
+
+    return $numbersArray;
+}
+
+function swap(&$variable1, &$variable2) {
+    $bufferVariable = $variable1; //вынести в функцию swap
+    $variable1 = $variable2;
+    $variable2 = $bufferVariable;
+}

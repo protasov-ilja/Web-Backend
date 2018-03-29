@@ -4,7 +4,7 @@ header("Content-Type: text/plain; charset=UTF-8");
 $paramsNumber = Count($_GET);
 if ((!isset($_GET['arr'])) || ($paramsNumber != 1)) {
     header('HTTP/1.1 400 Bad Request');
-    echo "Некорректно введены аргументы или их количество, нужно 1: arr";
+    echo "параметр arr отсутствует, или задан неверно";
     return;
 }
 

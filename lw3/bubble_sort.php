@@ -1,22 +1,31 @@
 <?php
+header("Content-Type: text/plain; charset=UTF-8");
 require_once 'include/common.inc.php';
 
-$paramsNumber = Count($_GET);
-
-if ((!isset($_GET['numbers'])) || ($paramsNumber != 1)) {
-    header('HTTP/1.1 400 Bad Request');
-    return;
-}
-
-$numbersArray = explode(',', $_GET['numbers']);
-$arrayLength = sizeof($numbersArray);
-for ($i = 0; $i < $arrayLength; ++$i) {
-    if (is_numeric($numbersArray[$i])) {
-        $numbersArray[$i] = intval($numbersArray[$i]);
-    } else {
-        header('HTTP/1.1 400 Bad Request');
-        return;
+function createNumbersArray() {
+    $inputArray = explode(',', $_GET['numbers']);
+    for ($i = 0; $i < sizeof($inputArray); ++$i) {
+        if (is_numeric($inputArray[$i])) {
+            $inputArray[$i] = intval($inputArray[$i]);
+        } else {
+            throw new Exception("один или несколько элементов массива не цифра");
+        }
     }
+
+    return $inputArray;
 }
 
-echo bubbleSort($numbersArray, $arrayLength);
+try {
+    $paramsNumber = Count($_GET);
+    if ((!isset($_GET['numbers'])) || ($paramsNumber != 1)) {
+        throw new Exception("параметр numbers отсутствует, или задан неверно!");
+    }
+
+    $numbersArray = createNumbersArray();
+    echo implode(',', sortArray($numbersArray, sizeof($numbersArray)));
+} catch(Exception $ex) {
+    header('HTTP/1.1 400 Bad Request');
+    echo $ex->getMessage();
+}
+
+
