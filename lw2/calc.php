@@ -10,19 +10,18 @@ function checkParamsForCorrect($paramsNumber)
         throw new Exception("Вы ввели невверное количество аргументов! Нужно 3: arg1, arg2, operation");
     }
 
-    if (!isset($_GET['arg1']) && !isset($_GET['arg2']) && !isset($_GET['operation'])) {
+    if (!isset($_GET['arg1']) || !isset($_GET['arg2']) || !isset($_GET['operation'])) {
         throw new Exception("Неправильные имена параметров! Нужно: arg1, arg2, operation");
     }
 
-    if (is_numeric($_GET['arg1']) && is_numeric($_GET['arg2'])) {
+    if (!is_numeric($_GET['arg1']) || !is_numeric($_GET['arg2'])) {
         throw new Exception("Один из аргументов arg1, arg2 не число!");
     }
 }
 
 try {
     checkParamsForCorrect(Count($_GET));
-    $result = calculator($_GET['arg1'], $_GET['arg2'], $_GET['operation']);
-    echo $result;
+    echo calculator($_GET['arg1'], $_GET['arg2'], $_GET['operation']);
 } catch(Exception $ex) {
     echo $ex->getMessage();
 }
