@@ -9,7 +9,7 @@ if ((!isset($_GET['identifier'])) || (Count($_GET) != 1)) {
 }
 
 if (strlen($_GET['identifier']) != 0) {
-    echo(checkIdentifier($_GET['identifier']));
+    echo checkIdentifier($_GET['identifier']);
 } else {
     echo "no: identifier is empty";
 }

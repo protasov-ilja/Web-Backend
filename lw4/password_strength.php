@@ -9,7 +9,7 @@ if ((!isset($_GET['password'])) || (Count($_GET) != 1)) {
 }
 
 if (strlen($_GET['password']) != 0) {
-    echo(checkPasswordStrength($_GET['password']));
+    echo checkPasswordStrength($_GET['password']);
 } else {
     echo "text is empty";
 }

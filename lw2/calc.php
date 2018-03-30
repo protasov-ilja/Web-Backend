@@ -1,6 +1,5 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
-
 require_once 'include/common.inc.php';
 
 const PARAMS_NUMBER = 3;
@@ -8,17 +7,14 @@ const PARAMS_NUMBER = 3;
 function checkParamsForCorrect($paramsNumber)
 {
     if ($paramsNumber != PARAMS_NUMBER) {
-        header('HTTP/1.1 400 Bad Request');
         throw new Exception("Вы ввели невверное количество аргументов! Нужно 3: arg1, arg2, operation");
     }
 
     if (!isset($_GET['arg1']) && !isset($_GET['arg2']) && !isset($_GET['operation'])) {
-        header('HTTP/1.1 400 Bad Request');
         throw new Exception("Неправильные имена параметров! Нужно: arg1, arg2, operation");
     }
 
     if (is_numeric($_GET['arg1']) && is_numeric($_GET['arg2'])) {
-        header('HTTP/1.1 400 Bad Request');
         throw new Exception("Один из аргументов arg1, arg2 не число!");
     }
 }

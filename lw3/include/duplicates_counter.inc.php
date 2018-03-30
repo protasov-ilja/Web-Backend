@@ -13,11 +13,15 @@ function countAndDisplayDuplicates($inputString) {
             }
 
             array_push($checkArr, $inputArray[$i]);
-            if ($inputArray[$i] == ' ') {
-                echo nl2br("'" . $inputArray[$i] . "'(пробел) - " . $counter . PHP_EOL);
-            } else {
-                echo nl2br($inputArray[$i] . " - " . $counter . PHP_EOL);
-            }
+            displayCharAndItsCount($inputArray[$i], $counter);
         }
+    }
+}
+
+function displayCharAndItsCount($char, $charCount) {
+    if ($char == ' ') {
+        echo nl2br("'" . $char . "'(пробел) - " .  $charCount . PHP_EOL);
+    } else {
+        echo nl2br($char . " - " . $charCount . PHP_EOL);
     }
 }

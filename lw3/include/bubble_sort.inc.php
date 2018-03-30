@@ -12,7 +12,7 @@ function sortArray($numbersArray, $arrayLength) {
 }
 
 function swap(&$variable1, &$variable2) {
-    $bufferVariable = $variable1; //вынести в функцию swap
+    $bufferVariable = $variable1;
     $variable1 = $variable2;
     $variable2 = $bufferVariable;
 }

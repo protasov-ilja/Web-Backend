@@ -9,7 +9,7 @@ if ((!isset($_GET['text'])) || (Count($_GET) != 1)) {
 }
 
 if (strlen($_GET['text']) != 0) {
-    echo(removeExtraBlanks($_GET['text']));
+    echo removeExtraBlanks($_GET['text']);
 } else {
     echo "text is empty";
 }
