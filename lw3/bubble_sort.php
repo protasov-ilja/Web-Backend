@@ -4,7 +4,7 @@ require_once 'include/common.inc.php';
 
 function getNumbersArray() {
     $inputArray = explode(',', $_GET['numbers']);
-    for ($i = 0; $i < sizeof($inputArray); ++$i) {
+    for ($i = 0; $i < count($inputArray); ++$i) {
         if (is_numeric($inputArray[$i])) {
             $inputArray[$i] = intval($inputArray[$i]);
         } else {
@@ -16,13 +16,13 @@ function getNumbersArray() {
 }
 
 try {
-    $paramsNumber = Count($_GET);
+    $paramsNumber = count($_GET);
     if ((!isset($_GET['numbers'])) || ($paramsNumber != 1)) {
         throw new Exception("параметр numbers отсутствует, или задан неверно!");
     }
 
     $numbersArray = getNumbersArray();
-    echo implode(',', sortArray($numbersArray, sizeof($numbersArray)));
+    echo implode(',', sortArray($numbersArray, count($numbersArray)));
 } catch(Exception $ex) {
     header('HTTP/1.1 400 Bad Request');
     echo $ex->getMessage();

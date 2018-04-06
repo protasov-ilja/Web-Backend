@@ -1,5 +1,8 @@
 <?php
-function __autoload($class_name)
-{
-    require_once($class_name . '.inc.php');
+$files = scandir(__DIR__);
+$searchedAttributes = ".inc.php";
+foreach ($files as $name) {
+    if (($name != "..") && ($name != ".") && (strpos($name, $searchedAttributes) != false)) {
+        require_once($name);
+    }
 }

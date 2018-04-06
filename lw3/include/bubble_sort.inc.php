@@ -1,11 +1,18 @@
 <?php
+
 function sortArray($numbersArray, $arrayLength) {
-    for($i = 1; $i < $arrayLength; ++$i) {
-        for($j=$arrayLength - 1; $j >= $i; --$j) {
+    $isSorted = false;
+    $i = 1;
+    while ((!$isSorted) && ($i < $arrayLength)) {
+        $isSorted = true;
+        for ($j = $arrayLength - 1; $j >= $i; --$j) {
             if($numbersArray[$j - 1] > $numbersArray[$j]) {
                 swap($numbersArray[$j - 1], $numbersArray[$j]);
+                $isSorted = false;
             }
         }
+
+        ++$i;
     }
 
     return $numbersArray;

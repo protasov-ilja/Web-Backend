@@ -20,8 +20,8 @@ function checkParamsForCorrect($paramsNumber)
 }
 
 try {
-    checkParamsForCorrect(Count($_GET));
-    echo calculator($_GET['arg1'], $_GET['arg2'], $_GET['operation']);
+    checkParamsForCorrect(count($_GET));
+    echo calculate($_GET['arg1'], $_GET['arg2'], $_GET['operation']);
 } catch(Exception $ex) {
     echo $ex->getMessage();
 }

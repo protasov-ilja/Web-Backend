@@ -1,5 +1,5 @@
 <?php
-function calculator($firstNum, $secondNum, $operation) {
+function calculate($firstNum, $secondNum, $operation) {
     switch ($operation) {
         case "add":
             $result =  $firstNum + $secondNum;

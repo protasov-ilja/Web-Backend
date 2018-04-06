@@ -13,7 +13,7 @@ function checkPasswordStrength($password)
     $repetitionCheckingArray = array();
     $repetitionArray = array();
     $verifiableArray = str_split($password);
-    $arrayLength = sizeof($verifiableArray);
+    $arrayLength = count($verifiableArray);
     for ($i = 0; $i < $arrayLength; ++$i) {
         if (in_array($verifiableArray[$i], $repetitionCheckingArray)) {
             $repeatCounter++;
@@ -46,7 +46,7 @@ function checkPasswordStrength($password)
 
 function checkReliabilityByRepetitions($repeatCounter, $repeatSymbolsCounter)
 {
-    return ($repeatCounter + $repeatSymbolsCounter);// * $repeatSymbolsCounter;
+    return ($repeatCounter + $repeatSymbolsCounter);
 }
 
 function checkReliabilityOfSymbols($lineLength, $symbolCounter, $isOnlySymbols)
@@ -65,6 +65,7 @@ function checkReliabilityByCaseOfSymbols($lineLength, $upperSymbolCounter, $lowe
     if ($lowerSymbolCounter != 0) {
         $result += ($lineLength - $lowerSymbolCounter) * 2;
     }
+
     if ($upperSymbolCounter != 0) {
         $result += ($lineLength - $upperSymbolCounter) * 2;
     }

@@ -1,12 +1,12 @@
 <?php
-function countAndDisplayDuplicates($inputString) {
+function displayDuplicates($inputString) {
     $inputArray = $inputString == "" ? array() : str_split(strtolower($inputString));
-    $stringLength = sizeof($inputArray);
+    $stringLength = count($inputArray);
     $checkArr = array();
     for ($i = 0; $i < $stringLength; ++$i) {
         $counter = 0;
         if (!in_array($inputArray[$i], $checkArr)) {
-            for ($j = 0; $j < $stringLength; ++$j) {
+            for ($j = $i; $j < $stringLength; ++$j) {
                 if ($inputArray[$i] == $inputArray[$j]) {
                     $counter++;
                 }

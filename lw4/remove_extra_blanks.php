@@ -3,7 +3,7 @@
 header("Content-Type: text/plain; charset=UTF-8");
 require_once 'include/common.inc.php';
 
-if ((!isset($_GET['text'])) || (Count($_GET) != 1)) {
+if ((!isset($_GET['text'])) || (count($_GET) != 1)) {
     header('HTTP/1.1 400 Bad Request');
     return;
 }
