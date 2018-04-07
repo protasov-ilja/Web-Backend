@@ -8,7 +8,6 @@ function checkIdentifier(string $str) {
     $verifiableArray = str_split($str);
     $arrayLength = count($verifiableArray);
     if (!ctype_alpha($verifiableArray[0])) {
-    } else {
         throw new Exception("no: this symbol '" . $verifiableArray[0] . "' can't be used at the beginning of the identifier");
     }
 
