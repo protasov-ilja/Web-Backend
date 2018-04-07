@@ -9,6 +9,10 @@ function withoutLast(string $str) {
     return substr($str, 0, -1);
 }
 
+/**
+ * @param string $str
+ * @return string
+ */
 function revers(string $str) {
     $reverseArray = str_split($str);
     $stringLength = count($reverseArray);
