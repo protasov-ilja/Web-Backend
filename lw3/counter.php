@@ -8,4 +8,4 @@ if ((!isset($_GET['string'])) || ($paramsNumber != 1) || ($_GET['string'] == "")
     return;
 }
 
-displayDuplicates($_GET['string']);
+printDuplicates(countDuplicates($_GET['string']));

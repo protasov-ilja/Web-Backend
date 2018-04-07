@@ -1,6 +1,5 @@
 <?php
 header("Content-Type: text/plain; charset=UTF-8");
-require_once 'include/common.inc.php';
 
 const DICTIONARY = [
     'Keyboard' => 'клавиатура',
@@ -17,7 +16,7 @@ function processTranslation($keyWord) {
             $translation = $translateWord;
         } else {
             header('HTTP/1.1 404 Not Found');
-            throw new Exception("запрошен перевод неизвестного слова!", 404);
+            throw new Exception("запрошен перевод неизвестного слова!");
         }
     }
 
@@ -35,4 +34,3 @@ try {
 } catch(Exception $ex) {
     echo $ex->getMessage();
 }
-

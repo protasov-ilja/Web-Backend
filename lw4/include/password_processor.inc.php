@@ -1,7 +1,7 @@
 <?php
 //password_processor.inc.php
 
-function checkPasswordStrength($password)
+function checkPasswordStrength(string $password)
 {
     $symbolCounter = 0;
     $numberCounter = 0;

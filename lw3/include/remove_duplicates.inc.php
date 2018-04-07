@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @param string $str
+ * @return string
+ */
 function removeDuplicates(string $str) {
     $charArray = str_split($str);
     $arrayLength = count($charArray);
