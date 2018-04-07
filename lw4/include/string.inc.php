@@ -21,6 +21,10 @@ function revers(string $str) {
     return implode('', $reverseArray);
 }
 
+/**
+ * @param string $str
+ * @return string
+ */
 function removeExtraBlanks(string $str) {
     $verifiableArray = str_split($str);
     $arrayLength = count($verifiableArray);

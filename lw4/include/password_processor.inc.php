@@ -1,6 +1,9 @@
 <?php
 //password_processor.inc.php
-
+/**
+ * @param string $password
+ * @return int
+ */
 function checkPasswordStrength(string $password)
 {
     $symbolCounter = 0;
@@ -44,11 +47,22 @@ function checkPasswordStrength(string $password)
             checkReliabilityByRepetitions($repeatCounter, sizeof($repetitionArray)));
 }
 
+/**
+ * @param $repeatCounter
+ * @param $repeatSymbolsCounter
+ * @return mixed
+ */
 function checkReliabilityByRepetitions($repeatCounter, $repeatSymbolsCounter)
 {
     return ($repeatCounter + $repeatSymbolsCounter);
 }
 
+/**
+ * @param $lineLength
+ * @param $symbolCounter
+ * @param $isOnlySymbols
+ * @return int
+ */
 function checkReliabilityOfSymbols($lineLength, $symbolCounter, $isOnlySymbols)
 {
     $result = 4 * $symbolCounter;
@@ -59,6 +73,12 @@ function checkReliabilityOfSymbols($lineLength, $symbolCounter, $isOnlySymbols)
     return $result;
 }
 
+/**
+ * @param $lineLength
+ * @param $upperSymbolCounter
+ * @param $lowerSymbolCounter
+ * @return int
+ */
 function checkReliabilityByCaseOfSymbols($lineLength, $upperSymbolCounter, $lowerSymbolCounter)
 {
     $result = 0;
@@ -73,6 +93,12 @@ function checkReliabilityByCaseOfSymbols($lineLength, $upperSymbolCounter, $lowe
     return $result;
 }
 
+/**
+ * @param $lineLength
+ * @param $numberCounter
+ * @param $isOnlyNumbers
+ * @return int
+ */
 function checkReliabilityOfNumbers($lineLength, $numberCounter, $isOnlyNumbers)
 {
     $result = 4 * $numberCounter;
