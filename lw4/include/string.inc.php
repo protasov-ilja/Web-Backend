@@ -1,5 +1,4 @@
 <?php
-// string.inc.php
 
 function last(string $str) {
     return $str[strlen($str) - 1];
