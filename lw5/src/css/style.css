@@ -1,0 +1,238 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'VT323', monospace;
+}
+
+
+/*img*/
+/*{*/
+    /*display: block;*/
+    /*margin: 0 auto;*/
+/*}*/
+
+/*p*/
+/*{*/
+    /*text-align: justify;*/
+    /*color: #20c53b;*/
+/*}*/
+
+/*.biography_list_text*/
+/*{*/
+    /*color: greenyellow;*/
+    /*margin-left: 30px;*/
+/*}*/
+
+/*.font_title_quote*/
+/*{*/
+    /*font-family: 'Barrio', cursive;*/
+    /*margin-top: 20px;*/
+    /*margin-bottom: 20px;*/
+    /*margin-left: 20px;*/
+    /*color: #ea9804;*/
+/*}*/
+
+/*.header_title*/
+/*{*/
+    /*width: 660px;*/
+    /*padding-top: 20px;*/
+    /*padding-left: 40px;*/
+/*}*/
+
+/*.font_main*/
+/*{*/
+    /*color: #ea9804;*/
+/*}*/
+
+/*.font_title*/
+/*{*/
+    /*font-family: 'Barrio', cursive;*/
+    /*color: #fafafa;*/
+/*}*/
+
+/*.header*/
+/*{*/
+    /*background-color: #1cb3be;*/
+    /*height: 80px;*/
+/*}*/
+
+/*.header_content*/
+/*{*/
+    /*background-color: #1cb3be;*/
+/*}*/
+
+/*.main*/
+/*{*/
+    /*background-image: url("../pictures/background.jpg");*/
+    /*height: 1000px;*/
+/*}*/
+
+/*.content*/
+/*{*/
+    /*background-color: blueviolet;*/
+    /*margin: 0 auto;*/
+    /*height: 1000px;*/
+    /*width: 1275px;*/
+/*}*/
+
+/*.content_sidebar*/
+/*{*/
+    /*background-color: #2c2c2c;*/
+    /*height: 1000px;*/
+    /*width: 247px;*/
+    /*float: left;*/
+/*}*/
+
+/*.sidebar_information*/
+/*{*/
+    /*margin: 30px auto;*/
+    /*width: 175px;*/
+/*}*/
+/*.sidebar_left*/
+/*{*/
+    /*height: 200px;*/
+    /*width: 60px;*/
+    /*float: left;*/
+/*}*/
+
+/*.sidebar_right*/
+/*{*/
+    /*height: 200px;*/
+    /*width: 115px;*/
+    /*float: left;*/
+/*}*/
+
+/*.map*/
+/*{*/
+    /*width: 175px;*/
+    /*height:auto;*/
+/*}*/
+
+/*.content_main*/
+/*{*/
+    /*background-color: #101928;*/
+    /*height: 980px;*/
+    /*width: 988px;*/
+    /*padding-left: 20px;*/
+    /*padding-right: 20px;*/
+    /*padding-top: 20px;*/
+    /*float: left;*/
+/*}*/
+
+/*.content_main_inner*/
+/*{*/
+    /*background-color: #101928;*/
+    /*height: 980px;*/
+    /*width: 988px;*/
+    /*padding-left: 20px;*/
+    /*padding-right: 20px;*/
+    /*padding-top: 20px;*/
+/*}*/
+
+/*.biography*/
+/*{*/
+    /*height: 350px;*/
+/*}*/
+
+/*.biography_text*/
+/*{*/
+    /*color: #fdfdff;*/
+/*}*/
+
+/*.biography_list_title*/
+/*{*/
+    /*margin-right: -40px;*/
+/*}*/
+
+/*.biography_list*/
+/*{*/
+    /*margin-left: 40px;*/
+    /*margin-top: 10px;*/
+    /*height: 120px;*/
+    /*width: 247px;*/
+    /*float: left;*/
+/*}*/
+
+/*.tops*/
+/*{*/
+    /*height: 455px;*/
+    /*width: 988px;*/
+/*}*/
+
+/*.top*/
+/*{*/
+    /*border: solid 1px black;*/
+    /*background-color: #1cb3be;*/
+    /*color: black;*/
+    /*width: 60px;*/
+    /*float: left;*/
+/*}*/
+
+/*.top_films*/
+/*{*/
+    /*clear: left;*/
+    /*border: groove 2px black;*/
+    /*background-color: #2c2c2c;*/
+    /*margin-bottom: 10px;*/
+    /*height: 425px;*/
+/*}*/
+
+/*.film*/
+/*{*/
+    /*margin-left: 28px;*/
+    /*background-color: #ededed;*/
+    /*height: 420px;*/
+    /*width: 225px;*/
+    /*float: left;*/
+/*}*/
+
+/*.margin*/
+/*{*/
+    /*margin-left: 0px;*/
+    /*float: left;*/
+/*}*/
+
+/*.film_title*/
+/*{*/
+    /*text-align: center;*/
+    /*margin-top: 5px;*/
+    /*margin-bottom: 5px;*/
+    /*color: #101928;*/
+    /*font-size: 16pt;*/
+/*}*/
+
+/*.film_title:hover*/
+/*{*/
+    /*border-radius: 5px;*/
+    /*background-color: #1b4f5a;*/
+    /*color: #eb9905;*/
+    /*transition: color 0.4s ease, background-color 0.4s ease;*/
+/*}*/
+
+/*.film_text*/
+/*{*/
+    /*margin: 7px;*/
+/*}*/
+
+/*.plans*/
+/*{*/
+    /*background-color: #ea9804;*/
+    /*height: 116px;*/
+    /*margin-top: 30px;*/
+/*}*/
+
+/*.plan_text*/
+/*{*/
+    /*margin-left: 30px;*/
+    /*color: #101928;*/
+/*}*/
+
+/*.font_title_plan*/
+/*{*/
+    /*margin-top: 10px;*/
+    /*margin-left: 20px;*/
+    /*margin-bottom: 10px;*/
+    /*font-family: 'Barrio', cursive;*/
+    /*color: #fafafa;*/
+/*}*/

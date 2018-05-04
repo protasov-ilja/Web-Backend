@@ -1,6 +1,6 @@
 <?php
-function checkPasswordStrength(string $password)
-{
+
+function getPasswordStrength(array $password) {
     $symbolCounter = 0;
     $numberCounter = 0;
     $upperSymbolCounter = 0;
@@ -10,27 +10,26 @@ function checkPasswordStrength(string $password)
     $repeatCounter = 0;
     $repetitionCheckingArray = array();
     $repetitionArray = array();
-    $verifiableArray = str_split($password);
-    $arrayLength = count($verifiableArray);
+    $arrayLength = count($password);
     for ($i = 0; $i < $arrayLength; ++$i) {
-        if (in_array($verifiableArray[$i], $repetitionCheckingArray)) {
+        if (in_array($password[$i], $repetitionCheckingArray)) {
             $repeatCounter++;
-            if (!in_array($verifiableArray[$i], $repetitionArray)) {
-                array_push($repetitionArray, $verifiableArray[$i]);
+            if (!in_array($password[$i], $repetitionArray)) {
+                array_push($repetitionArray, $password[$i]);
             }
         } else {
-            array_push($repetitionCheckingArray, $verifiableArray[$i]);
+            array_push($repetitionCheckingArray, $password[$i]);
         }
 
-        if (is_numeric($verifiableArray[$i])) {
+        if (is_numeric($password[$i])) {
             $isOnlySymbols = false;
             $numberCounter++;
         } else {
             $symbolCounter++;
             $isOnlyNumbers = false;
-            if (ctype_upper($verifiableArray[$i])) {
+            if (ctype_upper($password[$i])) {
                 $upperSymbolCounter++;
-            } else if (ctype_lower($verifiableArray[$i])) {
+            } else if (ctype_lower($password[$i])) {
                 $lowerSymbolCounter++;
             }
         }
@@ -39,16 +38,14 @@ function checkPasswordStrength(string $password)
     return (checkReliabilityOfNumbers($arrayLength, $numberCounter, $isOnlyNumbers) +
             checkReliabilityByCaseOfSymbols($arrayLength, $upperSymbolCounter, $lowerSymbolCounter) +
             checkReliabilityOfSymbols($arrayLength, $symbolCounter, $isOnlySymbols) -
-            checkReliabilityByRepetitions($repeatCounter, sizeof($repetitionArray)));
+            checkReliabilityByRepetitions($repeatCounter, count($repetitionArray)));
 }
 
-function checkReliabilityByRepetitions($repeatCounter, $repeatSymbolsCounter)
-{
+function checkReliabilityByRepetitions($repeatCounter, $repeatSymbolsCounter) {
     return ($repeatCounter + $repeatSymbolsCounter);
 }
 
-function checkReliabilityOfSymbols($lineLength, $symbolCounter, $isOnlySymbols)
-{
+function checkReliabilityOfSymbols($lineLength, $symbolCounter, $isOnlySymbols) {
     $result = 4 * $symbolCounter;
     if ($isOnlySymbols) {
         $result -= $lineLength;
@@ -57,8 +54,7 @@ function checkReliabilityOfSymbols($lineLength, $symbolCounter, $isOnlySymbols)
     return $result;
 }
 
-function checkReliabilityByCaseOfSymbols($lineLength, $upperSymbolCounter, $lowerSymbolCounter)
-{
+function checkReliabilityByCaseOfSymbols($lineLength, $upperSymbolCounter, $lowerSymbolCounter) {
     $result = 0;
     if ($lowerSymbolCounter != 0) {
         $result += ($lineLength - $lowerSymbolCounter) * 2;
@@ -71,8 +67,7 @@ function checkReliabilityByCaseOfSymbols($lineLength, $upperSymbolCounter, $lowe
     return $result;
 }
 
-function checkReliabilityOfNumbers($lineLength, $numberCounter, $isOnlyNumbers)
-{
+function checkReliabilityOfNumbers($lineLength, $numberCounter, $isOnlyNumbers) {
     $result = 4 * $numberCounter;
     if ($isOnlyNumbers) {
         $result -= $lineLength;

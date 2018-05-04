@@ -1,8 +1,5 @@
 <?php
-/**
- * @param string $inputString
- * @return array
- */
+
 function countDuplicates(string $inputString) {
     $inputArray = $inputString == "" ? array() : str_split_unicode(mb_strtolower($inputString));
     $stringLength = count($inputArray);
@@ -23,17 +20,10 @@ function countDuplicates(string $inputString) {
     return ($outputArray);
 }
 
-/**
- * @param string $str
- * @return array
- */
 function str_split_unicode(string $str) {
     return (preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY));
 }
 
-/**
- * @param array $array
- */
 function printDuplicates(array $array) {
     foreach ($array as $key => $value) {
         if ($key == ' ') {
