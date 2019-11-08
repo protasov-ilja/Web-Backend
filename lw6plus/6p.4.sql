@@ -72,6 +72,15 @@ SELECT COUNT(tmp_tbl.curse) AS count_curse
 FROM tmp_tbl;
 DROP TABLE `tmp_tbl`;
 
+-- without temp table
+SELECT COUNT(tmp_tbl.curse) AS count_curse
+FROM (
+  SELECT student_in_curse.curse_id AS curse
+  FROM `student_in_curse`
+  GROUP BY student_in_curse.curse_id
+  HAVING COUNT(student_in_curse.student_id) > 5
+) AS tmp_tbl;
+
 
 -- 2. отобразить все курсы, на которые записан определенный студент.
 SELECT student.name, GROUP_CONCAT(curse.name) AS curses

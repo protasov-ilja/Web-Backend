@@ -58,6 +58,7 @@ INSERT INTO `singer_and_song` VALUE (NULL, 'Linkin Park', 'Breaking The Habit', 
 INSERT INTO `singer_and_song` VALUE (NULL, 'Skillet', 'Feel Invincible', 2016);
 
 -- Выбрать всех исполнителей в алфамитном порядке, без повторов
+-- distinct удаляет все повторы из временной таблицы
 SELECT DISTINCT singer_and_song.singer
 FROM `singer_and_song`
   ORDER BY singer_and_song.singer ASC;

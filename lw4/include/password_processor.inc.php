@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @param array $password
+ * @return int
+ */
 function getPasswordStrength(array $password) {
     $symbolCounter = 0;
     $numberCounter = 0;
@@ -40,6 +43,7 @@ function getPasswordStrength(array $password) {
             checkReliabilityOfSymbols($arrayLength, $symbolCounter, $isOnlySymbols) -
             checkReliabilityByRepetitions($repeatCounter, count($repetitionArray)));
 }
+
 
 function checkReliabilityByRepetitions($repeatCounter, $repeatSymbolsCounter) {
     return ($repeatCounter + $repeatSymbolsCounter);

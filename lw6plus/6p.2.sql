@@ -42,3 +42,11 @@ FROM `tmp_table`
   GROUP BY tmp_table.d_count;
 
 DROP TABLE `tmp_table`;
+
+-- without temp var 2
+SELECT COUNT(downloads.user_id) AS user_count, downloads.download_count
+FROM (SELECT track_downloads.user_id, COUNT(track_downloads.track_id) AS download_count
+      FROM `track_downloads`
+        WHERE track_downloads.download_time = '2010-11-19'
+        GROUP BY track_downloads.user_id) AS downloads
+GROUP BY download_count;

@@ -57,4 +57,4 @@ FROM `orders`
   LEFT JOIN `users` ON users.users_id = orders.users_id
 WHERE orders.status = 1
 GROUP BY orders.users_id
-  HAVING COUNT(orders.orders_id) > 5;
+HAVING COUNT(orders.orders_id) > 5;
